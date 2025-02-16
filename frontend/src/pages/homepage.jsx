@@ -15,12 +15,12 @@ function Home() {
 					<span className="text-blue-300 font-semibold">
 						you are not alone.
 					</span>{' '}
-					This website is here to remind you that there is{' '}
+					This app is here to remind you that there is{' '}
 					<span className="text-green-300 font-semibold">
-						hope, support, and help available.
+						hope, support, and guidance available.
 					</span>{' '}
-					You matter, your feelings are valid, and there are people who care
-					about you and want to see you heal.
+					You matter, your feelings are valid, and there are tools to help you
+					navigate through tough times at your own pace.
 				</p>
 
 				<div className="mt-8 bg-gray-800 p-6 rounded-lg shadow-lg text-left">
@@ -30,37 +30,38 @@ function Home() {
 					<ul className="mt-4 space-y-3 text-gray-300">
 						<li>
 							<span className="text-green-300 font-semibold">
-								• Crisis Support:
+								• Talk to an AI for Immediate Support:
 							</span>{' '}
-							Immediate helplines and professional services for those in urgent
-							need.
+							Chat with an AI that listens, understands, and gently guides you
+							through your thoughts and emotions.
 						</li>
 						<li>
 							<span className="text-green-300 font-semibold">
-								• Understanding Suicidal Thoughts:
+								• Track Your Emotional Progress:
 							</span>{' '}
-							Information on what leads to these feelings and how to address
-							them.
+							Get personalized reports on how you’re doing after moments of
+							distress and receive helpful exercises tailored to your needs.
 						</li>
 						<li>
 							<span className="text-green-300 font-semibold">
-								• Helping a Loved One:
+								• Guided Breathing & Meditation:
 							</span>{' '}
-							Guidance on supporting someone who is struggling.
+							Calm your mind with relaxation techniques designed to help you
+							manage anxiety and overwhelming thoughts.
 						</li>
 						<li>
 							<span className="text-green-300 font-semibold">
-								• Coping Strategies:
+								• Personalized Coping Strategies:
 							</span>{' '}
-							Techniques for managing overwhelming emotions and building
-							resilience.
+							Receive scientifically-backed exercises and tips to help you cope
+							with difficult emotions and develop resilience.
 						</li>
 						<li>
 							<span className="text-green-300 font-semibold">
-								• Stories of Hope:
+								• Community and Peer Support:
 							</span>{' '}
-							Personal stories from individuals who have overcome difficult
-							times.
+							Connect with others who understand what you’re going through in a
+							safe and supportive space.
 						</li>
 					</ul>
 				</div>
@@ -71,11 +72,12 @@ function Home() {
 					</h3>
 					<p className="mt-4 text-gray-300 leading-relaxed">
 						If you are feeling hopeless, please know that your pain is not
-						permanent. There are people who care about you and want to help.
-						It’s okay to ask for support, whether from a friend, family member,
-						therapist, or crisis hotline.{' '}
+						permanent. This app is here to support you, guide you, and provide
+						tools to help you heal. It’s okay to take small steps forward.
+						Whether through AI-guided support, calming exercises, or tracking
+						your progress,{' '}
 						<span className="text-blue-300 font-semibold">
-							You don’t have to face this alone.
+							you don’t have to face this alone.
 						</span>
 					</p>
 				</div>
@@ -90,7 +92,7 @@ function Home() {
 				</p>
 
 				<button className="mt-6 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300">
-					Get Help Now
+					Start Your Journey
 				</button>
 			</div>
 		</div>
