@@ -11,7 +11,7 @@ const Navbar = () => {
 			/>
 
 			{/* Centered Title */}
-			<h1 className="text-2xl font-bold">You'reNotAlone.ai</h1>
+			<h1 className="text-2xl font-bold">SafeTalk.ai</h1>
 
 			{/* Login Icon on the right */}
 			<div className="absolute right-4 group cursor-pointer flex items-center">
