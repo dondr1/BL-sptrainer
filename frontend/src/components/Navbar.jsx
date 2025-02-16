@@ -2,7 +2,7 @@ import React from 'react';
 
 const Navbar = () => {
 	return (
-		<nav className=" text-white p-4 fixed w-full top-0 left-0 h-16 z-50 relative flex justify-center items-center">
+		<nav className="text-white p-4 fixed w-full top-0 left-0 h-16 z-50 relative flex justify-center items-center">
 			{/* Logo Image on the left */}
 			<img
 				src="../../public/images/blnewlogo.svg"
@@ -13,7 +13,26 @@ const Navbar = () => {
 			{/* Centered Title */}
 			<h1 className="text-2xl font-bold">SafeTalk.ai</h1>
 
-			{/* Login Icon on the right */}
+			{/* About, Home & Info Section (All on the Right Side) */}
+			<div className="absolute right-16 flex space-x-6">
+				<a
+					href="#"
+					className="text-white text-lg hover:text-gray-300 transition">
+					About
+				</a>
+				<a
+					href="#"
+					className="text-white text-lg hover:text-gray-300 transition">
+					Home
+				</a>
+				<a
+					href="#"
+					className="text-white text-lg hover:text-gray-300 transition">
+					Info
+				</a>
+			</div>
+
+			{/* Login Icon on the far right */}
 			<div className="absolute right-4 group cursor-pointer flex items-center">
 				{/* Icon */}
 				<i className="bx bx-log-in text-2xl"></i>
