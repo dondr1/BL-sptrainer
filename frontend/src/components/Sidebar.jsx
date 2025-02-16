@@ -23,18 +23,18 @@ const Sidebar = () => {
 			<ul className="nav">
 				<li>
 					<a href="#">
-						<i className="bx bx-candles"></i>
-						<span className="links_name">Candle-Stick Graph</span>
+						<i class="bx bx-universal-access"></i>
+						<span className="links_name">Get Help</span>
 					</a>
-					<span className="tooltip">Candle-Stick Graph</span>
+					<span className="tooltip">Help</span>
 				</li>
 
 				<li>
 					<a href="#">
 						<i className="bx bx-line-chart"></i>
-						<span className="links_name">Line-Chart</span>
+						<span className="links_name">Your Well-Being</span>
 					</a>
-					<span className="tooltip">Line-Chart</span>
+					<span className="tooltip">Well-Being</span>
 				</li>
 
 				<li>
@@ -43,6 +43,13 @@ const Sidebar = () => {
 						<span className="links_name">Ask</span>
 					</a>
 					<span className="tooltip">Ask</span>
+				</li>
+				<li>
+					<a href="#">
+						<i class="bx bx-phone-call"></i>
+						<span className="links_name">Call 988</span>
+					</a>
+					<span className="tooltip">Call</span>
 				</li>
 			</ul>
 		</div>
