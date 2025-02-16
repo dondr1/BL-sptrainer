@@ -12,6 +12,38 @@ const Navbar = () => {
 
 			{/* Centered Title */}
 			<h1 className="text-2xl font-bold">You'reNotAlone.ai</h1>
+
+			{/* Login Icon on the right */}
+			<div className="absolute right-4 group cursor-pointer flex items-center">
+				{/* Icon */}
+				<i className="bx bx-log-in text-2xl"></i>
+
+				{/* Tooltip BELOW the icon (top-full + mt-1) */}
+				<span
+					className="
+            absolute
+            left-1/2
+            transform -translate-x-1/2
+            top-full
+            mt-1
+            bg-black
+            text-white
+            text-sm
+            py-1
+            px-2
+            rounded
+            opacity-0
+            invisible
+            group-hover:opacity-100
+            group-hover:visible
+            whitespace-nowrap
+            transition-opacity
+            duration-300
+            z-50
+        ">
+					Login
+				</span>
+			</div>
 		</nav>
 	);
 };
