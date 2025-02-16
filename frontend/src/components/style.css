@@ -97,10 +97,11 @@ body {
 	width: 100%;
 	height: 50px;
 	line-height: 50px;
+	cursor: pointer;
 }
 
 /* Link: Icon on left, text to the right */
-.nav li a {
+.nav li {
 	display: flex;
 	align-items: center;
 	padding: 0 10px; /* some horizontal padding */
@@ -112,12 +113,12 @@ body {
 	white-space: nowrap;
 }
 
-.nav li a:hover {
+.nav li:hover {
 	background-color: #fff;
 	color: #11101d;
 }
 
-.nav li a i {
+.nav li i {
 	font-size: 20px;
 	margin-right: 8px; /* space between icon & text */
 }

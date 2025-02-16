@@ -12,7 +12,7 @@ import './App.css'; // Contains the gradient animation CSS
 function App() {
   return (
     <Router>
-      <div className="relative w-screen h-screen overflow-hidden">
+      <div className="relative w-screen h-screen overflow-hidden radial-gradient-bg">
         {/* Animated multi-directional gradient background */}
         <div className="absolute inset-0 animate-gradient-move z-[-1]"></div>
 
