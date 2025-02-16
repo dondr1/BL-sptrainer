@@ -12,33 +12,33 @@ import About from './pages/about';
 import Info from './pages/info';
 
 function App() {
-  return (
-    <Router>
-      <div className="relative w-screen h-screen overflow-hidden radial-gradient-bg">
-        {/* Animated multi-directional gradient background */}
-        <div className="absolute inset-0 animate-gradient-move z-[-1]"></div>
+	return (
+		<Router>
+			<div className="relative w-screen h-screen overflow-hidden radial-gradient-bg">
+				{/* Animated multi-directional gradient background */}
+				<div className="absolute inset-0 animate-gradient-move z-[-1]"></div>
 
-        {/* Fixed navbar at the top */}
-        <Navbar />
+				{/* Fixed navbar at the top */}
+				<Navbar />
 
-        {/* Fixed sidebar on the left */}
-        <Sidebar />
+				{/* Fixed sidebar on the left */}
+				<Sidebar />
 
-        {/* Main content area dynamically changes based on route */}
-        <div className="relative z-10 pt-16 ml-[69px] p-8 h-full overflow-auto">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/help" element={<Help />} />
-            <Route path="/wellbeing" element={<Wellbeing />} />
-            <Route path="/ask" element={<Ask />} />
-            <Route path="/call988" element={<Call988 />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/info" element={<Info />} />
-          </Routes>
-        </div>
-      </div>
-    </Router>
-  );
+				{/* Main content area dynamically changes based on route */}
+				<div className="relative z-10 pt-16 ml-[69px] p-8 h-full overflow-auto">
+					<Routes>
+						<Route path="/" element={<Home />} />
+						<Route path="/help" element={<Help />} />
+						<Route path="/wellbeing" element={<Wellbeing />} />
+						<Route path="/ask" element={<Ask />} />
+						<Route path="/call988" element={<Call988 />} />
+						<Route path="/about" element={<About />} />
+						<Route path="/info" element={<Info />} />
+					</Routes>
+				</div>
+			</div>
+		</Router>
+	);
 }
 
 export default App;

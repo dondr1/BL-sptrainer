@@ -20,21 +20,11 @@ body {
 	top: 0;
 	left: 0;
 	height: 100vh;
-	width: 69px;
+	width: 69px; /* Always collapsed */
 	background: #11101d;
 	padding: 6px 14px;
-	transition: width 0.5s ease;
 	overflow: hidden;
-	z-index: 0;
-}
-
-/* Expanded: 240px when active */
-.sidebar.active {
-	width: 240px;
-}
-
-.sidebar:not(.active) {
-	overflow: visible !important;
+	z-index: 10;
 }
 
 /* LOGO / ICON Container */
@@ -42,7 +32,7 @@ body {
 	margin-top: 64px;
 	display: flex;
 	align-items: center;
-	justify-content: start;
+	justify-content: center;
 }
 
 .logo {
@@ -53,43 +43,24 @@ body {
 	color: #fff;
 }
 
-/* MENU ICON:
-   - Transparent by default,
-   - White background on hover
-*/
+/* MENU ICON (Static) */
 .menu-icon {
 	background: transparent;
 	color: #fff;
 	border-radius: 50%;
 	padding: 8px;
-	cursor: pointer;
-	transition: background 0.3s, color 0.3s;
+	cursor: default;
 }
 
-.menu-icon:hover {
-	background: #fff;
-	color: #11101d;
-}
-
-/* The actual icon element */
-#btn {
-	font-size: 20px;
-	width: 24px;
-	height: 24px;
-	line-height: 24px;
-	text-align: center;
-	display: inline-block;
-}
-
-/* NAV = vertical list of items, left-aligned */
+/* NAVIGATION LIST */
 .nav {
 	display: flex;
 	flex-direction: column;
-	align-items: flex-start; /* Left-align content */
+	align-items: center;
 	margin-top: 16px;
 	list-style-type: none;
 	padding: 0;
-	gap: 10px; /* spacing between menu items */
+	gap: 10px;
 }
 
 .nav li {
@@ -98,17 +69,11 @@ body {
 	height: 50px;
 	line-height: 50px;
 	cursor: pointer;
-}
-
-/* Link: Icon on left, text to the right */
-.nav li {
 	display: flex;
+	justify-content: center;
 	align-items: center;
-	padding: 0 10px; /* some horizontal padding */
-	width: 100%; /* occupy full sidebar width */
 	color: #fff;
 	border-radius: 12px;
-	text-decoration: none;
 	transition: all 0.4s ease;
 	white-space: nowrap;
 }
@@ -120,27 +85,14 @@ body {
 
 .nav li i {
 	font-size: 20px;
-	margin-right: 8px; /* space between icon & text */
 }
 
-/* Hide text when collapsed */
-.links_name {
-	opacity: 0;
-	pointer-events: none;
-	transition: all 0.2s ease;
-}
-
-.sidebar.active .links_name {
-	opacity: 1;
-	pointer-events: auto;
-}
-
-/* TOOLTIP */
+/* TOOLTIP (Appears on Hover) */
 .tooltip {
 	position: absolute;
-	left: 122px;
-	top: 0;
-	transform: translate(-50%, -50%);
+	left: 90px;
+	top: 50%;
+	transform: translateY(-50%);
 	border-radius: 6px;
 	height: 35px;
 	width: 122px;
@@ -151,14 +103,11 @@ body {
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 	opacity: 0;
 	pointer-events: none;
-	transition: 0s;
+	transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* Show tooltip on hover (only in collapsed mode) */
-.sidebar:not(.active) .nav li:hover .tooltip {
-	transition: all 0.5s ease;
+/* Show tooltip only in collapsed state */
+.nav li:hover .tooltip {
 	opacity: 1;
-	top: 50%;
-	visibility: visible;
-	pointer-events: auto;
+	transform: translateY(-50%) translateX(5px);
 }
