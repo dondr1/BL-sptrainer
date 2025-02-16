@@ -2,7 +2,7 @@ import React from 'react';
 
 const Navbar = () => {
 	return (
-		<nav className="bg-red-600 text-white p-4 fixed w-full top-0 left-0 h-16 z-50 relative flex justify-center items-center">
+		<nav className=" text-white p-4 fixed w-full top-0 left-0 h-16 z-50 relative flex justify-center items-center">
 			{/* Logo Image on the left */}
 			<img
 				src="../../public/images/blnewlogo.svg"

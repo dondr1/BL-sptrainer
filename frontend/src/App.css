@@ -1,0 +1,35 @@
+:root {
+	--accent-pink-200: #ffab91; /* Your accent pink */
+	--accent-orange-200: #ffe0b2; /* Your accent orange */
+}
+
+@keyframes gradientShiftRandom {
+	0% {
+		background-position: 50% 50%;
+	}
+	20% {
+		background-position: 30% 70%;
+	}
+	40% {
+		background-position: 80% 20%;
+	}
+	60% {
+		background-position: 10% 90%;
+	}
+	80% {
+		background-position: 90% 10%;
+	}
+	100% {
+		background-position: 50% 50%;
+	}
+}
+
+.animate-gradient-move {
+	background-size: 300% 300%; /* Increase the gradient area for smoother animation */
+	background-image: radial-gradient(
+		circle,
+		var(--accent-pink-200),
+		var(--accent-orange-200)
+	);
+	animation: gradientShiftRandom 20s ease infinite;
+}
