@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+
+body {
+	background: black;
+	color: white;
+	min-height: 100vh;
+	width: 100%;
+	overflow-y: auto;
+}
+
+.sidebar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 69px; /* Always collapsed */
+	background: #11101d;
+	padding: 6px 14px;
+	overflow: hidden;
+	z-index: 10;
+}
+
+/* LOGO / ICON Container */
+.logo_content {
+	margin-top: 64px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+	height: 50px;
+	width: 100%;
+	color: #fff;
+}
+
+/* MENU ICON (Static) */
+.menu-icon {
+	background: transparent;
+	color: #fff;
+	border-radius: 50%;
+	padding: 8px;
+	cursor: default;
+}
+
+/* NAVIGATION LIST */
+.nav {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 16px;
+	list-style-type: none;
+	padding: 0;
+	gap: 10px;
+}
+
+.nav li {
+	position: relative;
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #fff;
+	border-radius: 12px;
+	transition: all 0.4s ease;
+	white-space: nowrap;
+}
+
+.nav li:hover {
+	background-color: #fff;
+	color: #11101d;
+}
+
+.nav li i {
+	font-size: 20px;
+}
+
+/* TOOLTIP (Appears on Hover) */
+.tooltip {
+	position: absolute;
+	left: 90px;
+	top: 50%;
+	transform: translateY(-50%);
+	border-radius: 6px;
+	height: 35px;
+	width: 122px;
+	background: #fff;
+	color: #11101d;
+	line-height: 35px;
+	text-align: center;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Show tooltip only in collapsed state */
+.nav li:hover .tooltip {
+	opacity: 1;
+	transform: translateY(-50%) translateX(5px);
+}

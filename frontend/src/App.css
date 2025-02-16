@@ -1,0 +1,28 @@
+:root {
+	--gradient-center: radial-gradient(
+		circle,
+		#fee0ac 10%,
+		#f9b6fc 30%,
+		#8a96ff 90% /* Blue Edge */
+	);
+}
+
+@keyframes expandGradient {
+	0% {
+		background-size: 300% 300%;
+		background-position: center;
+	}
+	50% {
+		background-size: 500% 500%; /* Expands the yellow & pink across the screen */
+	}
+	100% {
+		background-size: 200% 200%;
+		background-position: center;
+	}
+}
+
+.radial-gradient-bg {
+	background: var(--gradient-center);
+	background-size: 150% 150%;
+	animation: expandGradient 12s ease-in-out infinite alternate;
+}
