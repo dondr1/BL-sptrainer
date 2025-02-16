@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+
+body {
+	background: black;
+	color: white;
+	min-height: 100vh;
+	width: 100%;
+	overflow: hidden;
+}
+
+.sidebar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 69px;
+	background: #11101d;
+	padding: 6px 14px;
+	transition: width 0.5s ease;
+	overflow: hidden;
+	z-index: 9999;
+}
+
+/* Expanded: 240px when active */
+.sidebar.active {
+	width: 240px;
+}
+
+/* LOGO / ICON Container */
+.logo_content {
+	display: flex;
+	align-items: center;
+	justify-content: start;
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+	height: 50px;
+	width: 100%;
+	color: #fff;
+}
+
+/* MENU ICON:
+   - Transparent by default,
+   - White background on hover
+*/
+.menu-icon {
+	background: transparent;
+	color: #fff;
+	border-radius: 50%;
+	padding: 8px;
+	cursor: pointer;
+	transition: background 0.3s, color 0.3s;
+}
+
+.menu-icon:hover {
+	background: #fff;
+	color: #11101d;
+}
+
+/* The actual icon element */
+#btn {
+	font-size: 20px;
+	width: 24px;
+	height: 24px;
+	line-height: 24px;
+	text-align: center;
+	display: inline-block;
+}
+
+/* NAV = vertical list of items, left-aligned */
+.nav {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start; /* Left-align content */
+	margin-top: 16px;
+	list-style-type: none;
+	padding: 0;
+	gap: 10px; /* spacing between menu items */
+}
+
+.nav li {
+	position: relative;
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+}
+
+/* Link: Icon on left, text to the right */
+.nav li a {
+	display: flex;
+	align-items: center;
+	padding: 0 10px; /* some horizontal padding */
+	width: 100%; /* occupy full sidebar width */
+	color: #fff;
+	border-radius: 12px;
+	text-decoration: none;
+	transition: all 0.4s ease;
+	white-space: nowrap;
+}
+
+.nav li a:hover {
+	background-color: #fff;
+	color: #11101d;
+}
+
+.nav li a i {
+	font-size: 20px;
+	margin-right: 8px; /* space between icon & text */
+}
+
+/* Hide text when collapsed */
+.links_name {
+	opacity: 0;
+	pointer-events: none;
+	transition: all 0.5s ease;
+}
+
+.sidebar.active .links_name {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+/* TOOLTIP */
+.tooltip {
+	position: absolute;
+	left: 122px;
+	top: 0;
+	transform: translate(-50%, -50%);
+	border-radius: 6px;
+	height: 35px;
+	width: 122px;
+	background: #fff;
+	color: #11101d;
+	line-height: 35px;
+	text-align: center;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	opacity: 0;
+	pointer-events: none;
+	transition: 0s;
+}
+
+/* Show tooltip on hover (only in collapsed mode) */
+.nav li:hover .tooltip {
+	transition: all 0.5s ease;
+	opacity: 1;
+	top: 50%;
+}
