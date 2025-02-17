@@ -24,7 +24,7 @@ body {
 	background: #11101d;
 	padding: 6px 14px;
 	overflow: hidden;
-	z-index: 10;
+	z-index: 100;
 }
 
 /* LOGO / ICON Container */
