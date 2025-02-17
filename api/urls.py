@@ -16,9 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import signup, login
+from .views import (signup, login, access_chat_history_all, access_scores_all, 
+        access_scores_single, upload_chat_history, access_chat_history_single, upload_scores)
 
 urlpatterns = [
     path('signup/', signup, name = "signup"),
     path('login/', login, name = "login"),
+    path('access-scores-single/', access_scores_single, name='access_scores_single'),
+    path('access-scores-all/', access_scores_all, name='access_scores_all'),
+    path('upload-scores/', upload_scores, name='upload_scores'),
+    path('access-chat-history-single/', access_chat_history_single, name='access_chat_history_single'),
+    path('access-chat-history-all/', access_chat_history_all, name='access_chat_history_all'),
+    path('upload-chat-history/', upload_chat_history, name='upload_chat_history')
 ]
