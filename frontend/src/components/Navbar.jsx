@@ -12,8 +12,8 @@ const Navbar = () => {
         className="absolute left-4 h-10 object-contain"
       />
 
-      {/* Centered Title */}
-      <h1 className="text-2xl font-bold text-gray-600">SafeTalk.ai</h1>
+			{/* Centered Title */}
+			<h1 className="text-2xl font-bold text-black">SafeTalk.ai</h1>
 
 			{/* About, Home & Info Section (All on the Right Side) */}
 			<div className="absolute right-16 flex space-x-6">

@@ -7,8 +7,8 @@ const RadarChart = ({ data }) => {
 	useEffect(() => {
 		d3.select(svgRef.current).selectAll('*').remove();
 
-		const width = 350; // Reduced from 400
-		const height = 350; // Reduced from 400
+		const width = 500; // Reduced from 400
+		const height = 500; // Reduced from 400
 		const radius = Math.min(width, height) / 2 - 40;
 		const levels = 5;
 		const angleSlice = (Math.PI * 2) / data.length;
@@ -51,9 +51,9 @@ const RadarChart = ({ data }) => {
 			.append('text')
 			.attr('x', (d, i) => {
 				if (d.axis === 'Risk Assessment') {
-					return Math.cos(angleSlice * i - Math.PI / 2) * (radius + 5);
+					return Math.cos(angleSlice * i - Math.PI / 2) * radius;
 				} else if (d.axis === 'Resource Referral') {
-					return Math.cos(angleSlice * i - Math.PI / 2) * (radius + 5);
+					return Math.cos(angleSlice * i - Math.PI / 2) * (radius - 1.3);
 				}
 				return Math.cos(angleSlice * i - Math.PI / 2) * (radius + 20);
 			})
