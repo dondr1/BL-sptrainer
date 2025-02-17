@@ -23,9 +23,9 @@ const Sidebar = () => {
 					<span className="tooltip">Your Well-Being</span>
 				</li>
 
-				<li onClick={() => navigate('/ask')}>
+				<li onClick={() => navigate('/chat')}>
 					<i className="bx bx-chat"></i>
-					<span className="tooltip">Ask</span>
+					<span className="tooltip">Chat</span>
 				</li>
 
 				<li onClick={() => navigate('/call988')}>

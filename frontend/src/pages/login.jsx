@@ -1,7 +1,30 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { loginUser } from '../api/api';
 
 const Login = () => {
+	const [userCred, setUserCred] = useState({
+		uname: "",
+		pwd: ""
+	});
+	const navigate = useNavigate();
+
+	const handleChange = (e) => {
+			setUserCred({ ...userCred, [e.target.name]: e.target.value });
+		};
+
+		const handleLogin = async (e) => {
+			e.preventDefault();
+			try {
+				await loginUser(userData);
+				localStorage.setItem("uname", userCred.uname);
+				navigate('/ask');
+			} catch (error) {
+				alert('Login failed. Check your credentials.');
+				console.error(error);
+			}
+		};
+
 	return (
 		<div className="flex h-[85vh] mt-[-40px] rounded-lg mb-10 overflow-hidden">
 			{/* Left Column at 6.5/12 (~54.17%) */}
@@ -17,12 +40,14 @@ const Login = () => {
 						Login to SafeTalk.ai
 					</h2>
 
-					<form className="space-y-4">
+					<form onSubmit={handleLogin} className="space-y-4">
 						<div>
 							<label className="block text-gray-700 mb-1">Username</label>
 							<input
 								type="text"
+								name="uname"
 								className="text-black w-full px-3 py-2 rounded bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+								onChange={handleChange}
 								required
 							/>
 						</div>
@@ -31,7 +56,9 @@ const Login = () => {
 							<label className="block text-gray-700 mb-1">Password</label>
 							<input
 								type="password"
+								name="pwd"
 								className="text-black w-full px-3 py-2 rounded bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+								onChange={handleChange}
 								required
 							/>
 						</div>

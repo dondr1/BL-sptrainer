@@ -20,7 +20,6 @@ const Signup = () => {
     const handleSignUp = async (e) => {
         e.preventDefault();
         try {
-
             await signupUser(userData);
             alert('SignUp successful! Please log in.');
             navigate('/login');
@@ -101,6 +100,7 @@ const Signup = () => {
 							<label className="block text-gray-700 mb-1">Password</label>
 							<input
 								type="password"
+								name="pwd"
 								className="w-full px-3 py-2 text-black rounded bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
 								onChange={handleChange}
                                 required

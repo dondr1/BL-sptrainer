@@ -5,13 +5,13 @@ import Sidebar from './components/Sidebar';
 import Home from './pages/homepage';
 import Wellbeing from './pages/wellbeing';
 import Help from './pages/help';
-import Ask from './pages/ask';
 import Call988 from './pages/call988';
 import './App.css'; // Contains the gradient animation CSS
 import About from './pages/about';
 import Info from './pages/info';
 import Login from './pages/login';
 import Signup from './pages/signup';
+import Chat from './pages/chat';
 
 function App() {
 	return (
@@ -29,12 +29,12 @@ function App() {
         {/* Main content area dynamically changes based on route */}
         <div className="relative z-10 pt-16 ml-[69px] p-8 h-full overflow-auto">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<Home />} />
             <Route path="/help" element={<Help />} />
             <Route path="/wellbeing" element={<Wellbeing />} />
-            <Route path="/ask" element={<Ask />} />
+            <Route path="/chat" element={<Chat />} />
             <Route path="/call988" element={<Call988 />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/" element={<About />} />
             <Route path="/info" element={<Info />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
