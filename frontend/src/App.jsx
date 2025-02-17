@@ -14,17 +14,17 @@ import Login from './pages/login';
 import Signup from './pages/signup';
 
 function App() {
-  return (
-    <Router>
-      <div className="relative w-screen h-screen overflow-hidden radial-gradient-bg">
-        {/* Animated multi-directional gradient background */}
-        <div className="absolute inset-0 animate-gradient-move z-[-1]"></div>
+	return (
+		<Router>
+			<div className="relative w-screen h-screen overflow-hidden radial-gradient-bg">
+				{/* Animated multi-directional gradient background */}
+				<div className="absolute inset-0 animate-gradient-move z-[-1]"></div>
 
-        {/* Fixed navbar at the top */}
-        <Navbar />
+				{/* Fixed navbar at the top */}
+				<Navbar />
 
-        {/* Fixed sidebar on the left */}
-        <Sidebar />
+				{/* Fixed sidebar on the left */}
+				<Sidebar />
 
         {/* Main content area dynamically changes based on route */}
         <div className="relative z-10 pt-16 ml-[69px] p-8 h-full overflow-auto">

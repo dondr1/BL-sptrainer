@@ -15,27 +15,24 @@ const Navbar = () => {
       {/* Centered Title */}
       <h1 className="text-2xl font-bold text-gray-600">SafeTalk.ai</h1>
 
-      {/* About, Home & Info Section (All on the Right Side) */}
-      <div className="absolute right-16 flex space-x-6">
-        <Link
-          to="/about"
-          className="text-white text-lg hover:text-gray-300 transition"
-        >
-          About
-        </Link>
-        <Link
-          to="/"
-          className="text-white text-lg hover:text-gray-300 transition"
-        >
-          Home
-        </Link>
-        <Link
-          to="/info"
-          className="text-white text-lg hover:text-gray-300 transition"
-        >
-          Info
-        </Link>
-      </div>
+			{/* About, Home & Info Section (All on the Right Side) */}
+			<div className="absolute right-16 flex space-x-6">
+				<Link
+					to="/about"
+					className="text-white text-lg hover:text-gray-300 transition">
+					About
+				</Link>
+				<Link
+					to="/"
+					className="text-white text-lg hover:text-gray-300 transition">
+					Home
+				</Link>
+				<Link
+					to="/info"
+					className="text-white text-lg hover:text-gray-300 transition">
+					Info
+				</Link>
+			</div>
 
       {/* Login Icon on the far right */}
       <div
@@ -44,13 +41,13 @@ const Navbar = () => {
         {/* Icon */}
         <i className="bx bx-log-in text-2xl"></i>
 
-        {/* Tooltip BELOW the icon (top-full + mt-1) */}
-        <span className="absolute left-1/2 transform -translate-x-1/2 top-full mt-1 bg-black text-white text-sm py-1 px-2 rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible whitespace-nowrap transition-opacity duration-300 z-50">
-          Login
-        </span>
-      </div>
-    </nav>
-  );
+				{/* Tooltip BELOW the icon (top-full + mt-1) */}
+				<span className="absolute left-1/2 transform -translate-x-1/2 top-full mt-1 bg-black text-white text-sm py-1 px-2 rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible whitespace-nowrap transition-opacity duration-300 z-50">
+					Login
+				</span>
+			</div>
+		</nav>
+	);
 };
 
 export default Navbar;
