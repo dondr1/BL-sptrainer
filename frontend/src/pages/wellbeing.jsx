@@ -1,8 +1,9 @@
 import React from 'react';
 import RadarChart from '../components/RadarChart';
+import { Link } from 'react-router-dom';
 
 const Wellbeing = () => {
-  // Sample Wellbeing Data (values range from 0 to 10)
+    //1 to 10 values
   const wellbeingData = [
     { axis: 'Rapport Building', value: 7 },
     { axis: 'Risk Assessment', value: 6 },

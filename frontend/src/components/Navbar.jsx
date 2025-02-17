@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link from React Router
+import { Link, useNavigate } from 'react-router-dom'; // Import Link from React Router
 
 const Navbar = () => {
+	const navigate = useNavigate();
   return (
     <nav className="text-white p-4 fixed w-full top-0 left-0 h-16 z-50 relative flex justify-center items-center bg-transparent">
       {/* Logo Image on the left */}
@@ -12,7 +13,7 @@ const Navbar = () => {
       />
 
       {/* Centered Title */}
-      <h1 className="text-2xl font-bold">SafeTalk.ai</h1>
+      <h1 className="text-2xl font-bold text-gray-600">SafeTalk.ai</h1>
 
       {/* About, Home & Info Section (All on the Right Side) */}
       <div className="absolute right-16 flex space-x-6">
@@ -37,7 +38,9 @@ const Navbar = () => {
       </div>
 
       {/* Login Icon on the far right */}
-      <div className="absolute right-4 group cursor-pointer flex items-center">
+      <div
+        className="absolute right-4 group cursor-pointer flex items-center"
+        	onClick={() => navigate('/login')}>
         {/* Icon */}
         <i className="bx bx-log-in text-2xl"></i>
 

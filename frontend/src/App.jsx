@@ -10,6 +10,8 @@ import Call988 from './pages/call988';
 import './App.css'; // Contains the gradient animation CSS
 import About from './pages/about';
 import Info from './pages/info';
+import Login from './pages/login';
+import Signup from './pages/signup';
 
 function App() {
   return (
@@ -34,6 +36,8 @@ function App() {
             <Route path="/call988" element={<Call988 />} />
             <Route path="/about" element={<About />} />
             <Route path="/info" element={<Info />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
           </Routes>
         </div>
       </div>
