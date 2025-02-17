@@ -12,7 +12,7 @@ const Navbar = () => {
 			/>
 
 			{/* Centered Title */}
-			<h1 className="text-2xl font-bold">SafeTalk.ai</h1>
+			<h1 className="text-2xl font-bold text-black">SafeTalk.ai</h1>
 
 			{/* About, Home & Info Section (All on the Right Side) */}
 			<div className="absolute right-16 flex space-x-6">
