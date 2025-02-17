@@ -85,34 +85,49 @@ def login(request):
             'error': 'An error occurred during login'
         }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-def insert_chat_session(data):
-    # Convert trainee ID to ObjectId
-    data['trainee'] = ObjectId(data['trainee'])
-    
-    # Convert timestamp strings to datetime objects
-    for chat in data['chats']:
-        chat['timestamp'] = datetime.fromisoformat(chat['timestamp'].replace('Z', '+00:00'))
-    
-    data['created_at'] = datetime.fromisoformat(data['created_at'].replace('Z', '+00:00'))
-    
-    # Insert the data into the database
-    result = db.ChatSessions.insert_one(data)
-    
-    return result.inserted_id
 
-@api_view(['POST'])
+@api_view(["POST"])
 def upload_chat_history(request):
     try:
+        uname = request.data.get("uname")
+        if not uname:
+            return JsonResponse({"error": "Username is required"}, status=400)
+        
+        # Find the trainee's ObjectId from the Trainees collection
+        trainee = db.trainees.find_one({"uname": uname})
+        if not trainee:
+            return JsonResponse({"error": "Trainee username not found"}, status=400)
+        
+        trainee_id = trainee["_id"]
+        
         data = request.data
-        inserted_id = insert_chat_session(data)
+        
+        # Convert timestamps
+        for chat in data["chats"]:
+            chat["timestamp"] = datetime.fromisoformat(chat["timestamp"].replace("Z", "+00:00"))
+        
+        data["created_at"] = datetime.fromisoformat(data["created_at"].replace("Z", "+00:00"))
+        
+        # Prepare document for insertion
+        chat_session = {
+            "trainee": trainee_id,
+            "chats": data["chats"],
+            "created_at": data["created_at"]
+        }
+        
+        # Insert into database
+        result = db.ChatSessions.insert_one(chat_session)
         
         return JsonResponse({
-            'message': 'Chat session uploaded successfully',
-            'session_id': str(inserted_id)
+            "message": "Chat session uploaded successfully",
+            "session_id": str(result.inserted_id)
         }, status=status.HTTP_201_CREATED)
 
     except Exception as e:
-        return JsonResponse({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)    
+        return JsonResponse({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+    
 
 @api_view(['GET'])
 def access_chat_history_all(request):
