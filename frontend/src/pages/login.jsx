@@ -16,9 +16,9 @@ const Login = () => {
 		const handleLogin = async (e) => {
 			e.preventDefault();
 			try {
-				await loginUser(userData);
+				await loginUser(userCred);
 				localStorage.setItem("uname", userCred.uname);
-				navigate('/ask');
+				navigate('/chat');
 			} catch (error) {
 				alert('Login failed. Check your credentials.');
 				console.error(error);

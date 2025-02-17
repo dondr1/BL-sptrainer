@@ -8,8 +8,8 @@ const RadarChart = ({ data }) => {
 		// Clear any previous content
 		d3.select(svgRef.current).selectAll('*').remove();
 
-		const width = 600;
-		const height = 600;
+		const width = 280;
+		const height = 280;
 		const radius = Math.min(width, height) / 2 - 40;
 		const levels = 5;
 		const angleSlice = (Math.PI * 2) / data.length;
@@ -65,7 +65,7 @@ const RadarChart = ({ data }) => {
 				(d, i) => Math.sin(angleSlice * i - Math.PI / 2) * (radius + 20)
 			)
 			.attr('text-anchor', 'middle')
-			.style('font-size', '12px')
+			.style('font-size', '9px')
 			.style('fill', '#000000')
 			.text((d) => d.axis);
 

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://192.168.18.18:8000/';
+const API_BASE_URL = 'http://192.168.18.18:8000';
 
 export const signupUser = async (userData) => {
   try {
@@ -24,12 +24,54 @@ export const loginUser = async (userData) => {
 
 export const accessScoresAll = async (uname) => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/access_scores_all/`, {
-      params: { uname },
-    });
-    return response.data; // Expected to have { scores: [...] }
+    const response = await axios.get(`${API_BASE_URL}/access-scores-all/`, uname);
+    return response.data;
   } catch (error) {
     console.error('Error fetching scores:',error.response?.data || error.message);
     throw error;
   }
 };
+
+export const accessScoresSingle = async (scoresData) => {
+  try {
+    const response = await axios.get(
+      `${API_BASE_URL}/access-scores-single/`,
+      scoresData
+    );
+    return response.data;
+  } catch (error) {
+    console.error(
+      'Error fetching scores:',
+      error.response?.data || error.message
+    );
+    throw error;
+  }
+};
+
+export const uploadChats = async (chatData) => {
+  try {
+    const response = await axios.post(`${API_BASE_URL}/upload-chat-history/`, chatData);
+    return response.data;
+  } catch (error) {
+    console.error(
+      'Error fetching scores:',
+      error.response?.data || error.message
+    );
+    throw error;
+  }
+};
+
+export const uploadScores = async (scoreData) => {
+  try {
+    const response = await axios.post(`${API_BASE_URL}/upload-scores/`,scoreData);
+    return response.data;
+  } catch (error) {
+    console.error(
+      'Error fetching scores:',
+      error.response?.data || error.message
+    );
+    throw error;
+  }
+};
+
+
