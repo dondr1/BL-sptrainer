@@ -5,10 +5,11 @@ const RadarChart = ({ data }) => {
 	const svgRef = useRef();
 
 	useEffect(() => {
+		// Clear any previous content
 		d3.select(svgRef.current).selectAll('*').remove();
 
-		const width = 500; // Reduced from 400
-		const height = 500; // Reduced from 400
+		const width = 600;
+		const height = 600;
 		const radius = Math.min(width, height) / 2 - 40;
 		const levels = 5;
 		const angleSlice = (Math.PI * 2) / data.length;
@@ -21,16 +22,18 @@ const RadarChart = ({ data }) => {
 			.append('g')
 			.attr('transform', `translate(${width / 2}, ${height / 2})`);
 
+		// Draw circular grid lines (keep as is or adjust if needed)
 		const axisGrid = svg.append('g').attr('class', 'axisWrapper');
 		for (let i = 1; i <= levels; i++) {
 			axisGrid
 				.append('circle')
 				.attr('r', (radius / levels) * i)
 				.style('fill', 'none')
-				.style('stroke', '#ffffff')
+				.style('stroke', '#000000')
 				.style('stroke-opacity', 0.3);
 		}
 
+		// Draw axes and labels (using black for contrast)
 		const axes = svg
 			.selectAll('.axis')
 			.data(data)
@@ -44,7 +47,7 @@ const RadarChart = ({ data }) => {
 			.attr('y1', 0)
 			.attr('x2', (d, i) => Math.cos(angleSlice * i - Math.PI / 2) * radius)
 			.attr('y2', (d, i) => Math.sin(angleSlice * i - Math.PI / 2) * radius)
-			.style('stroke', '#ffffff')
+			.style('stroke', '#000000')
 			.style('stroke-width', '1px');
 
 		axes
@@ -63,23 +66,70 @@ const RadarChart = ({ data }) => {
 			)
 			.attr('text-anchor', 'middle')
 			.style('font-size', '12px')
-			.style('fill', '#ffffff')
+			.style('fill', '#000000')
 			.text((d) => d.axis);
 
-		// **Fix: Ensure the Radar Shape Closes Properly**
+		// Draw the radar shape with light pink fill and red connecting lines
 		const line = d3
 			.lineRadial()
 			.radius((d) => (d.value / 10) * radius)
 			.angle((d, i) => i * angleSlice)
-			.curve(d3.curveLinearClosed); // <--- Ensures last point connects to first
+			.curve(d3.curveLinearClosed);
 
 		svg
 			.append('path')
 			.datum(data)
 			.attr('d', line)
-			.style('fill', 'rgba(0, 100, 255, 0.3)')
-			.style('stroke', 'blue')
+			.style('fill', 'rgba(255,182,193,0.3)') // light pink fill
+			.style('stroke', 'red') // red stroke between categories
 			.style('stroke-width', 2);
+
+		// Add circles for each data point
+		svg
+			.selectAll('.data-point')
+			.data(data)
+			.enter()
+			.append('circle')
+			.attr('class', 'data-point')
+			.attr(
+				'cx',
+				(d, i) =>
+					Math.cos(angleSlice * i - Math.PI / 2) * ((d.value / 10) * radius)
+			)
+			.attr(
+				'cy',
+				(d, i) =>
+					Math.sin(angleSlice * i - Math.PI / 2) * ((d.value / 10) * radius)
+			)
+			.attr('r', 4)
+			.style('fill', 'blue')
+			.style('stroke', '#000000');
+
+		// Add text labels next to each data point showing the score
+		svg
+			.selectAll('.data-label')
+			.data(data)
+			.enter()
+			.append('text')
+			.attr('class', 'data-label')
+			.attr('x', (d, i) => {
+				const cx =
+					Math.cos(angleSlice * i - Math.PI / 2) * ((d.value / 10) * radius);
+				return cx + (cx >= 0 ? 10 : -10);
+			})
+			.attr('y', (d, i) => {
+				const cy =
+					Math.sin(angleSlice * i - Math.PI / 2) * ((d.value / 10) * radius);
+				return cy + 5;
+			})
+			.attr('text-anchor', (d, i) => {
+				const cx =
+					Math.cos(angleSlice * i - Math.PI / 2) * ((d.value / 10) * radius);
+				return cx >= 0 ? 'start' : 'end';
+			})
+			.text((d) => d.value)
+			.attr('fill', '#000000')
+			.attr('font-size', '12px');
 	}, [data]);
 
 	return <svg ref={svgRef} className="mx-auto"></svg>;
