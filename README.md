@@ -89,3 +89,124 @@ Follow these instructions to set up a local development environment:
    ```bash
    git clone https://github.com/dondr1/BL-sptrainer.git
    cd BL-sptrainer
+
+   Here is the complete text formatted in Markdown (`.md`) as requested, ready to be copied and pasted directly into your GitHub README file:
+
+```md
+# SafeTalk.ai Setup & Developer Guide
+
+## Setting Up the Backend
+
+1. **Navigate to the backend directory:**
+
+   ```bash
+   cd backend
+   ```
+
+2. **Create a virtual environment and install required packages:**
+
+   ```bash
+   python3 -m venv env
+   source env/bin/activate  # On Windows use: env\Scripts\activate
+   pip install -r requirements.txt
+   ```
+
+3. **Configure environment variables:**
+   - Set up variables such as the database connection and OpenAI API key. You may create a `.env` file based on the project template if available.
+
+4. **Apply Django migrations:**
+
+   ```bash
+   python manage.py migrate
+   ```
+
+## Setting Up the Frontend
+
+1. **Open a new terminal window and navigate to the frontend directory:**
+
+   ```bash
+   cd ../frontend
+   ```
+
+2. **Install dependencies:**
+
+   ```bash
+   npm install
+   ```
+
+## Running the Application
+
+### Start the Backend Server
+From the `backend` folder:
+
+```bash
+python manage.py runserver
+```
+
+### Launch the Frontend Application
+From the `frontend` folder:
+
+```bash
+npm start
+```
+
+### Access the Platform
+Open your browser and navigate to: `http://localhost:3000`  
+*(The exact port may vary based on your local configuration.)*
+
+## Running Tests (Optional)
+It’s recommended to run tests to verify that everything is working correctly.
+
+- **For Django tests:**
+
+   ```bash
+   python manage.py test
+   ```
+
+- **For frontend testing (using the test command defined in `package.json`):**
+
+   ```bash
+   npm test
+   ```
+
+## Built With
+- **Frontend:** React, Tailwind CSS, Framer Motion  
+- **Backend:** Django, MongoDB  
+- **API Integration:** OpenAI GPT-4 API  
+- **Data Visualization:** D3.js  
+- **Other Tools:** Python, JWT, GitHub for version control, Figma for UI/UX design  
+
+## Contributing
+We welcome contributions to improve SafeTalk.ai. Please follow these steps:
+
+1. Fork the repository.
+2. Create a feature branch:
+
+   ```bash
+   git checkout -b feature/AmazingFeature
+   ```
+
+3. Commit your changes:
+
+   ```bash
+   git commit -m 'Add some AmazingFeature'
+   ```
+
+4. Push to the branch:
+
+   ```bash
+   git push origin feature/AmazingFeature
+   ```
+
+5. Open a pull request detailing your changes.
+
+For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+Distributed under the MIT License. See the `LICENSE` file for more information.
+
+## Acknowledgments
+- Our heartfelt thanks to everyone who supports mental health initiatives.  
+- Special acknowledgment to the OpenAI team for their advanced AI technology.  
+- Shout-out to the contributors and mental health professionals whose insights shaped this project.
+```
